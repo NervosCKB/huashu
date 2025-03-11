@@ -43,6 +43,9 @@
             border-radius: 8px;
             outline: none;
             transition: border-color 0.3s;
+            -webkit-appearance: none;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .search-input:focus {
@@ -74,24 +77,49 @@
             position: absolute;
             top: 0.5rem;
             right: 0.5rem;
-            background-color: #4a90e2;
-            color: white;
+            width: 36px;
+            height: 36px;
+            background-color: #f0f0f0;
+            color: #666;
             border: none;
-            border-radius: 4px;
-            padding: 0.4rem 0.8rem;
+            border-radius: 50%;
             cursor: pointer;
-            font-size: 0.8rem;
-            transition: background-color 0.3s;
+            font-size: 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .copy-button::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: currentColor;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z'/%3E%3C/svg%3E") no-repeat center;
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z'/%3E%3C/svg%3E") no-repeat center;
         }
 
         .copy-button:hover {
-            background-color: #357abd;
+            background-color: #e0e0e0;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         .copy-button.copied {
             background-color: #4caf50;
+            color: white;
         }
 
+        .copy-button.copied::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: currentColor;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E") no-repeat center;
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E") no-repeat center;
+        }
         .highlight {
             background-color: #ffeb3b;
             padding: 0 2px;
